@@ -1,5 +1,6 @@
 package com.example.calculatorapp
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.calculatorapp.databinding.ActivityMainBinding
@@ -48,6 +49,21 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation === Configuration.ORIENTATION_LANDSCAPE) {
+            tvExp.setPadding(0,0,16,0)
+            tvExp.textSize = 16f
+            tvResult.setPadding(0,0,16,0)
+            tvResult.textSize = 16f
+        } else if (newConfig.orientation === Configuration.ORIENTATION_PORTRAIT) {
+            tvExp.setPadding(0,16,16,0)
+            tvExp.textSize = 24f
+            tvResult.setPadding(0,16,16,0)
+            tvResult.textSize = 24f
+        }
     }
 
 
